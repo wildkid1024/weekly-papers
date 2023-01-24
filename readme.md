@@ -6,7 +6,7 @@
 
 ### Möbius Transformation for Fast Inner Product Search on Graph[NIPS'19][Baidu]
 - 现有的图上的ANN检索算法依赖于在metric measure(L2) 构建出的类德劳内图，但在no-metric measure(IP) MIPS 上无此性质，效果不佳（// TODO 效果不佳如何证明）
-- 提出了 mobius 变换：$ yi := xi/‖xi‖^2 $ ，将数据集从 IP space 映射到 L2 sapce，在此基础上建图
+- 提出了 mobius 变换：$y_i= x_i/‖x_i‖^2$ ，将数据集从 IP space 映射到 L2 sapce，在此基础上建图
 - 多个公开数据集上，同等算力下的Recall 精度有明显提升（20% ～ 30%）
 
 ### Embedding-based Retrieval in Facebook Search[KDD'20][Facebook]
