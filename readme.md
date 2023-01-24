@@ -6,7 +6,7 @@
 
 ### Möbius Transformation for Fast Inner Product Search on Graph[NIPS'19][Baidu]
 - 现有的图上的ANN检索算法依赖于在metric measure(L2) 构建出的类德劳内图，但在no-metric measure(IP) MIPS 上无此性质，效果不佳（// TODO 效果不佳如何证明）
-- 提出了 mobius 变换： ，将数据集从 IP space 映射到 L2 sapce，在此基础上建图
+- 提出了 mobius 变换：$ yi := xi/‖xi‖^2 $ ，将数据集从 IP space 映射到 L2 sapce，在此基础上建图
 - 多个公开数据集上，同等算力下的Recall 精度有明显提升（20% ～ 30%）
 
 ### Embedding-based Retrieval in Facebook Search[KDD'20][Facebook]
@@ -41,8 +41,10 @@
 
 
 ### Physically Adversarial Attacks and Defenses in Computer Vision: A Survey[arXiv'22][Beihang]
-- 额外文档，见计算机视觉领域的物理对抗攻防综述
+- 额外文档，见[计算机视觉领域的物理对抗攻防综述](计算机视觉领域的物理对抗攻防综述.md)
 
+### A survey on hardware security of DNN models and accelerators[][]
+- 额外文档，见[DNN模型和加速器的硬件安全综述](DNN模型和加速器的硬件安全综述.md)
 
 ## 系统、编译器设计、优化
 
@@ -74,7 +76,7 @@
  
 ## 行为检测
 ### MS-TCT: Multi-Scale Temporal ConvTransformer for Action Detection[CVPR'22][Inria]
-- 额外文档，见MS-TCT读书笔记(1)
+- 额外文档，见[MS-TCT](MSTCT.md)
 
 ### Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset[CVPR'17][DeepMind]
 
@@ -82,4 +84,4 @@
 
 ## 目标检测
 ### YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors[arxiv'22][IIS]
-- 见额外文档，yolov7总结
+- 见额外文档，[yolov7](yolov7.md)
