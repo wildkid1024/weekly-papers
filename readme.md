@@ -13,12 +13,16 @@
 
 
 ### Transformer Memory as a Differentiable Search Index[NIPS'22][Google]
+- 将Transformer(T5模型)应用到信息检索，实现从问题到docid的映射。
+- 主要有几个问题：1. 文档表示：原始文本或词袋 2. 文本id表示：直接表示为整数、非结构化自动化编号以及结构化语义编号。3. 索引方法：问题到文档id(q,j)或者文本到文档id(d,j)。
+- 探索了Inputs2target、Targets2Inputs、Bidirectional、Span Corruption等几种索引方法，直接索引、集合索引、逆索引等文档表示方法，以及非结构化自动表示、结构化字符表示、语义结构化表示等几种不同的docid表示，实验验证了组合的表示方法。
+
 
 ### A Neural Corpus Indexer for Document Retrieval[NIPS'22][MSRA]
 
 - 提出了一种端到端的基于Transformer的信息检索架构。
 - 传统的信息检索分为两类，一类是基于term的，建立倒排表，根据倒排表进行索引，缺点：无法召回语义相关的文档；另外一类是基于语义的，建立双塔模型，使用ANN进行检索，缺点：在精确匹配上表现较差，二是ANN有欧拉空间的强假设，模型无法合并文档交互？
-- 在预处理部分加入了kmens,使文档ID具有分类层次化的特点，然后借助DocT5Query和Document As Query对文档生成query，将生成或真实的<query, docid>对送入到encoder中，使用了前缀可感知的共享权重decode进行解码，最后使用同一query间的输入尽可能接近，不同query间尽可能大进行对比学习，使得算法更加稳定。
+- 在预处理部分加入了kmeans,使文档ID具有分类层次化的特点，然后借助DocT5Query和Document As Query对文档生成query，将生成或真实的<query, docid>对送入到encoder中，使用了前缀可感知的共享权重decode进行解码，最后使用同一query间的输入尽可能接近，不同query间尽可能大进行对比学习，使得算法更加稳定。
 - 缺点：在v100机器上，最大的吞吐只有50左右，在实际场景中是不够的。当出现新的文档的时候，docid会发生变化，模型要进行重训练。
 
 
