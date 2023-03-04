@@ -1,7 +1,6 @@
 # 每周论文合集
 
 
-
 ## 信息检索、搜索
 
 ### Möbius Transformation for Fast Inner Product Search on Graph[NIPS'19][Baidu]
@@ -20,6 +19,18 @@
 - 传统的信息检索分为两类，一类是基于term的，建立倒排表，根据倒排表进行索引，缺点：无法召回语义相关的文档；另外一类是基于语义的，建立双塔模型，使用ANN进行检索，缺点：在精确匹配上表现较差，二是ANN有欧拉空间的强假设，模型无法合并文档交互？
 - 在预处理部分加入了kmens,使文档ID具有分类层次化的特点，然后借助DocT5Query和Document As Query对文档生成query，将生成或真实的<query, docid>对送入到encoder中，使用了前缀可感知的共享权重decode进行解码，最后使用同一query间的输入尽可能接近，不同query间尽可能大进行对比学习，使得算法更加稳定。
 - 缺点：在v100机器上，最大的吞吐只有50左右，在实际场景中是不够的。当出现新的文档的时候，docid会发生变化，模型要进行重训练。
+
+
+## 推荐系统
+### Wide & Deep Learning for Recommender Systems[DLRS'16][Google]
+- 提出了一种wide和deep结合的推荐系统方案，wide部分使用LR模型，deep部分使用全连接网络模型，分别提取低阶和高阶的特征
+- wide部分采用的是稀疏+稠密的特征工程，deep部分则直接对特征进行embedding，然后输入到深度网络中，两部分分别训练
+- 线上测试能提高3.9的收益
+
+
+### DeepFM: A Factorization-Machine based Neural Network for CTR Prediction[IJCAI'17][Huawei]
+- 与wide&deep一样都使用了wide和deep模型，但将wide和deep模型的训练融合在一起
+- wide部分由LR换成了FM，wide和deep部分都采用了embedding稠密特征，无需进行特征工程。
 
 
 ## 对抗攻防
@@ -41,10 +52,10 @@
 
 
 ### Physically Adversarial Attacks and Defenses in Computer Vision: A Survey[arXiv'22][Beihang]
-- 额外文档，见[计算机视觉领域的物理对抗攻防综述](计算机视觉领域的物理对抗攻防综述.md)
+- 额外文档，见[计算机视觉领域的物理对抗攻防综述](%20security/计算机视觉领域的物理对抗攻防综述.md)
 
 ### A survey on hardware security of DNN models and accelerators[][]
-- 额外文档，见[DNN模型和加速器的硬件安全综述](DNN模型和加速器的硬件安全综述.md)
+- 额外文档，见[DNN模型和加速器的硬件安全综述](%20security/DNN模型和加速器的硬件安全综述.md)
 
 ## 系统、编译器设计、优化
 
