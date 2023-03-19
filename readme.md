@@ -36,6 +36,17 @@
 - 与wide&deep一样都使用了wide和deep模型，但将wide和deep模型的训练融合在一起
 - wide部分由LR换成了FM，wide和deep部分都采用了embedding稠密特征，无需进行特征工程。
 
+### Deep & Cross Network for Ad Click Predictions(DCN)[arXiv'17][google]
+- 对wide&deep网络的wide侧进行了修改，借鉴了残差网络，设计了交叉网络学习交叉特征
+- 交叉网络实际上就是通过xl和cross weight的乘积来得到当前特征与x0特征的权重，然后使用该权重与x0的乘积作为残差来学习
+- 是element粒度的特征交叉
+
+
+### Deep Interest Network for Click-Through Rate Prediction(DIN)[KDD'18][Ali]
+- 是对原始的深度推荐模型的改进，主要针对原始模型中sum pooling没有考虑item之间权重不同的问题
+- 文章有3点贡献： 1. 提出了DIN，借助了NMT中的Attention结构学习用户行为和候选Item之间的权重信息，在文中成为activation Unit 2. 提出dice激活函数，相当于prelu的泛化版本 3. 提出了稀疏训练的方法，在L2惩罚项更新的时候，只更新参数不为0的部分，对参数为0的部分不更新。
+
+
 
 ## 对抗攻防
 ### Segment and Complete: Defending Object Detectors against Adversarial Patch Attacks with Robust Patch Detection[CVPR'22][JHU]
