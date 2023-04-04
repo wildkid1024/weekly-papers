@@ -47,7 +47,6 @@
 - 文章有3点贡献： 1. 提出了DIN，借助了NMT中的Attention结构学习用户行为和候选Item之间的权重信息，在文中成为activation Unit 2. 提出dice激活函数，相当于prelu的泛化版本 3. 提出了稀疏训练的方法，在L2惩罚项更新的时候，只更新参数不为0的部分，对参数为0的部分不更新。
 
 
-
 ## 对抗攻防
 ### Segment and Complete: Defending Object Detectors against Adversarial Patch Attacks with Robust Patch Detection[CVPR'22][JHU]
 - 提出了SAC检测器用于防御目标检测的贴纸攻击，SAC检测器分为两部分，分割部分和补全部分。
@@ -69,8 +68,34 @@
 ### Physically Adversarial Attacks and Defenses in Computer Vision: A Survey[arXiv'22][Beihang]
 - 额外文档，见[计算机视觉领域的物理对抗攻防综述](%20security/计算机视觉领域的物理对抗攻防综述.md)
 
-### A survey on hardware security of DNN models and accelerators[][]
+### A survey on hardware security of DNN models and accelerators[arXiv'22]
 - 额外文档，见[DNN模型和加速器的硬件安全综述](%20security/DNN模型和加速器的硬件安全综述.md)
+
+## 模型后门和数据投毒
+
+### Trojan attack on neural networks[NDSS'18][purdue]
+- 神经网络的后门攻击
+- 相比BadNet添加了神经网络反传时的优化信息，取代了badnet中任意像素块的触发器
+
+
+### Latent Backdoor Attacks on Deep Neural Networks[CCS'19][UChicago]
+- 后门攻击，将后门触发器隐藏在模型隐特征中，当用户下载预训练模型后便可触发
+- 训练教师网络模型使其包含目标攻击类别y_t,然后使用target和非target数据进行微调
+- 根据训练好的教师模型使用优化算法生成触发器
+- 使用投毒数据注入模型后门，训练数据，固定最后一层，只训练模型特征
+- 将模型的最后一层去除，隐藏y_t
+
+### Neural Cleanse: Identifying and Mitigating Backdoor Attacks in Neural Networks[ISP'19][UChicago]
+- 后门防御，通过优化的方法构建逆向触发器，基于指定后门标签的触发器相比其他标签的小
+
+
+### Detecting Backdoor Attacks on Deep Neural Networks by Activation Clustering[AAAI'19][IBM]
+- 后门检测与防御方法，通过特征图的
+- 使用投毒数据，取模型最后一层前的特征图数据，压平
+- 对所有激活进行降维、聚类成2类
+- 使用异常分析算法分析是否具有投毒样本，主要有1. 阈值法 2. 平均度法，相对大小比对 3. 聚类边缘值
+
+
 
 ## 系统、编译器设计、优化
 
